@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer } from "react";
+import { AppRouter } from "./routers/AppRouter";
+import { AuthContext } from "./auth/AuthContext";
+import { authReducer } from "./auth/authReducer";
 
 function App() {
+  const [userAuth, dispatch] = useReducer(authReducer, {});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={{ userAuth, dispatch }}>
+      <AppRouter />
+    </AuthContext.Provider>
   );
 }
 
