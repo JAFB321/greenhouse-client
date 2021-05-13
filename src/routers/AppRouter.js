@@ -7,6 +7,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 
 import { AuthContext } from "../auth/AuthContext";
+import { Header } from "../components/Header";
 
 export const AppRouter = () => {
   //   const [checking, setChecking] = useState(true);
@@ -16,10 +17,7 @@ export const AppRouter = () => {
 
   useEffect(() => {
     const { user, token, logged } = userAuth;
-
-    if (logged) {
-      setIsLoggedIn(true);
-    }
+    setIsLoggedIn(logged);
   }, [userAuth]);
 
   //   if (checking) {
@@ -29,6 +27,7 @@ export const AppRouter = () => {
   return (
     <Router>
       <div>
+        <Header />
         <Switch>
           <PublicRoute
             path="/auth"

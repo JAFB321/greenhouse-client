@@ -1,12 +1,18 @@
 import React from "react";
 
-export const SensorCard = ({ sensorID, sensorType, value, valueType }) => {
+export const SensorCard = ({
+  sensorID,
+  fullname,
+  sensorType,
+  value,
+  valueType,
+}) => {
   return (
-    <div className="sensor_card card">
+    <div className={`sensor_card card ${sensorType}`}>
       <img
         className="sensor_card-logo"
         src={
-          sensorType === "Temperature"
+          sensorType === "temperature"
             ? "global-warming.svg"
             : "clean-water.svg"
         }
@@ -21,6 +27,7 @@ export const SensorCard = ({ sensorID, sensorType, value, valueType }) => {
           {value} {valueType}
         </span>
       </p>
+      <div className="sensor_card-fullname">{fullname}</div>
     </div>
   );
 };

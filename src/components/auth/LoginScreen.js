@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { useForm } from "../../hooks/useForm";
 
 import { AuthContext } from "../../auth/AuthContext";
@@ -7,25 +8,30 @@ import { types } from "../../types/types";
 
 export const LoginScreen = () => {
   const [formValues, handleInputChange] = useForm({
-    user: "admin",
-    password: "admin",
+    user: "",
+    password: "",
   });
 
   const { dispatch: dispatchAuth } = useContext(AuthContext);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     const { user, password } = formValues;
-    if (user === "admin" && password === "admin") {
+    try {
+      const res = await axios.post("http://localhost:8080/api/users/auth", {
+        username: user,
+        password,
+      });
+
       dispatchAuth({
         type: types.login,
         payload: {
-          token: "TOKEN-123",
-          user: user,
+          user,
+          token: res.data?.data?.token,
         },
       });
-    }
+    } catch (error) {}
   };
 
   return (

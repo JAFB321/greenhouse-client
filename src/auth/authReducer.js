@@ -3,10 +3,10 @@ import { types } from "../types/types";
 export const authReducer = (state = {}, action) => {
   switch (action.type) {
     case types.login:
-      const { userAuth, token } = action.payload;
+      const { user, token } = action.payload;
 
       return {
-        user: userAuth,
+        user,
         token,
         logged: true,
       };

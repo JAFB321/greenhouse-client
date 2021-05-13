@@ -1,0 +1,18 @@
+.header {
+  background: lighten($color: $primary, $amount: 4);
+  height: 40px;
+}
+
+.auth-navbar {
+  position: absolute;
+  right: 20px;
+  top: 7px;
+  color: white;
+  font-weight: 600;
+}
+
+.logout {
+  background-color: rgb(241, 68, 68);
+  border-radius: 5px;
+  font-weight: 600;
+}

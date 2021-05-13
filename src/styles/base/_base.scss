@@ -1,5 +1,5 @@
 * {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Roboto Mono", monospace;
   margin: 0;
 }
 
@@ -62,7 +62,7 @@ main {
 
 .card {
   background-color: white;
-  box-shadow: 0px 3px $dark-grey;
+  box-shadow: 0px 3px $primary;
   border-radius: 3px;
   margin-bottom: 10px;
   padding: 10px;

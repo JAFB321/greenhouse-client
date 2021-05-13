@@ -6,22 +6,27 @@ export const SensorsMonitor = () => {
   const [sensors, setSensors] = useState([]);
 
   useEffect(() => {
-    const socket = socketIOClient("ws://localhost:8080", {
-      withCredentials: true,
-      extraHeaders: {
-        "my-custom-header": "header",
-      },
-    });
-    socket.on("sensor", function (data) {
-      // data:
-      //	[
-      // 		{ id: 'EXAMPLE', value: { value: 312, date: 'date' } },
-      //  	{ id: 'EXAMPLE2', value: { value: 324, date: 'date' } }
-      // ];
-      // (check src/database.js)
-      var sensors = JSON.parse(data);
-      setSensors(sensors);
-    });
+    try {
+      const socket = socketIOClient("ws://localhost:8080");
+      socket.on("sensorsData", function (data) {
+        var sensors = JSON.parse(data);
+
+        if (sensors) {
+          setSensors(
+            sensors.map(({ name, fullname, ReadingType, lastValue }) => ({
+              name,
+              fullname,
+              lastValue,
+              measureType: ReadingType.MeasureType.type,
+              readSymbol: ReadingType.symbol,
+              readFullname: ReadingType.fullname,
+            }))
+          );
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
@@ -40,20 +45,14 @@ export const SensorsMonitor = () => {
             <div className="sensor_card-grid">
               {sensors.map((sensor) => (
                 <SensorCard
-                  key={sensor.id}
-                  sensorID={sensor.id}
-                  sensorType="Temperature"
-                  value={sensor.value.value}
-                  valueType="Celcius"
+                  key={sensor.name}
+                  sensorID={sensor.name}
+                  sensorType={sensor.measureType}
+                  value={sensor.lastValue}
+                  valueType={sensor.readSymbol}
+                  fullname={sensor.fullname}
                 />
               ))}
-
-              {/* <SensorCard
-                sensorID="TEMP1"
-                sensorType="Temperature"
-                value={38}
-                valueType="Celcius"
-              /> */}
             </div>
           </div>
         </div>
