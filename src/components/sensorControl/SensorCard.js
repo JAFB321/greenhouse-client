@@ -13,19 +13,16 @@ export const SensorCard = ({
         className="sensor_card-logo"
         src={
           sensorType === "temperature"
-            ? "global-warming.svg"
-            : "clean-water.svg"
+            ? "/global-warming.svg"
+            : "/clean-water.svg"
         }
         alt=""
       />
       <h3 className="sensor_card-title text-center">{sensorID}</h3>
 
       <p className="card">
-        <span className="sensor_card-info">{sensorType}:</span>
-        <span className="sensor_card-info_value">
-          {"  "}
-          {value} {valueType}
-        </span>
+        <span className="sensor_card-info"> State: </span>
+        <span className="sensor_card-info_value">Working</span>
       </p>
       <div className="sensor_card-fullname">{fullname}</div>
     </div>
