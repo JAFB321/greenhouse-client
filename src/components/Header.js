@@ -28,15 +28,21 @@ export const Header = () => {
         <button className="btn open-sidenav" onClick={() => setSidenav(false)}>
           Close
         </button>
-        <Link className="option mt-1" to="/monitor">
+        <Link className="option mt-1" to="/dashboard">
+          Dashboard
+        </Link>
+        {/* <Link className="option mt-1" to="/monitor">
           Monitor
-        </Link>
-        <Link className="option mt-1" to="/monitor/sensors">
+        </Link> */}
+        {/* <Link className="option mt-1" to="/monitor/sensors">
           Sensor Control
+        </Link> */}
+        <Link className="option mt-1" to="/alertmanager">
+          AlertsManager
         </Link>
-        <Link className="option mt-1" to="/reports">
+        {/* <Link className="option mt-1" to="/reports">
           Reportering
-        </Link>
+        </Link> */}
 
         <div className="mt-5">
           <img

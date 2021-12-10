@@ -9,6 +9,8 @@ import { AuthContext } from "../auth/AuthContext";
 import { Header } from "../components/Header";
 import { MonitorRouter } from "./MonitorRouter";
 import { ReportsRouter } from "./ReportsRouter";
+import { DashboardRouter } from "./DashboardRouter";
+import { AlertManagerRouter } from "./AlertManagerRouter";
 
 export const AppRouter = () => {
   //   const [checking, setChecking] = useState(true);
@@ -39,10 +41,24 @@ export const AppRouter = () => {
           />
 
           <PrivateRoute
+            path="/dashboard"
+            isAuthenticated={isLoggedIn}
+            component={DashboardRouter}
+          />
+
+          <PrivateRoute
+            path="/alertmanager"
+            isAuthenticated={isLoggedIn}
+            component={AlertManagerRouter}
+          />
+
+          <PrivateRoute
             path="/monitor"
             isAuthenticated={isLoggedIn}
             component={MonitorRouter}
           />
+
+
 
           {/* <PrivateRoute
             exact
@@ -51,7 +67,7 @@ export const AppRouter = () => {
             component={SensorsMonitor}
           /> */}
 
-          <Redirect to="/monitor" />
+          <Redirect to="/dashboard" />
         </Switch>
       </div>
     </Router>

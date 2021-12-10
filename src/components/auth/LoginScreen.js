@@ -9,7 +9,7 @@ import { types } from "../../types/types";
 export const LoginScreen = () => {
   const [formValues, handleInputChange] = useForm({
     user: "admin",
-    password: "admin",
+    password: "malala12",
   });
 
   const { dispatch: dispatchAuth } = useContext(AuthContext);

@@ -1,0 +1,61 @@
+.alert-summary {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-weight: 700;
+}
+
+.alert-summary-item {
+    background: #419e1d;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+}
+
+.alert-details-info{
+    padding: 3px;
+}
+
+.alert-details-notifications{
+    background: cornflowerblue;
+    border-radius: 5px;
+    color: white;
+    margin-left: 5px;
+    font-weight: 800;
+    display: inline-block;
+    padding: 5px;
+}
+
+// Create alert
+.alert-create-open{
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.create-alert-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 292px;
+    gap: 5px;
+}
+
+.create-alert-form input{
+    border: 1px solid;
+
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+}
+
+.create-alert-form label {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+.create-alert-form input.btn{
+    background: seagreen;
+}
+
+.create-alert-form {
+    padding: 8px 0;
+}
