@@ -8,8 +8,8 @@ import { types } from "../../types/types";
 
 export const LoginScreen = () => {
   const [formValues, handleInputChange] = useForm({
-    user: "admin",
-    password: "malala12",
+    user: "jafb321",
+    password: "12345",
   });
 
   const { dispatch: dispatchAuth } = useContext(AuthContext);
@@ -19,27 +19,15 @@ export const LoginScreen = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const { user, password } = formValues;
+    const { user } = formValues;
     try {
-      console.log(process.env.REACT_APP_API_URL);
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/users/auth`,
-        {
-          username: user,
-          password,
-        },
-        {
-          headers: {
-            "access-control-allow-origin": "http://localhost:3000",
-          },
-        }
-      );
+     
 
       dispatchAuth({
         type: types.login,
         payload: {
           user,
-          token: res.data?.data?.token,
+          token: 'token',
         },
       });
     } catch (error) {

@@ -3,7 +3,7 @@ import { AppRouter } from './routers/AppRouter';
 import { AuthContext } from './auth/AuthContext';
 import { authReducer } from './auth/authReducer';
 
-import ReactNotification from 'react-notifications-component'
+// import ReactNotification from 'react-noifications-component'
 import 'react-notifications-component/dist/theme.css'
 
 import { store } from 'react-notifications-component';
@@ -21,19 +21,19 @@ function App() {
 		const {zone, sensor} = data;
 		console.log(zone);
 		if(userAuth?.logged){ 
-			store.addNotification({
-				title: "Alert on "+zone, 
-				message: "There is a problem with "+sensor,
-				type: "warning",
-				insert: "top",
-				container: "top-right",
-				animationIn: ["animate__animated", "animate__fadeIn"],
-				animationOut: ["animate__animated", "animate__fadeOut"],
-				// dismiss: {
-				//   duration: 2000,
-				//   onScreen: true
-				// }
-			  });
+			// store.addNotification({
+			// 	title: "Alert on "+zone, 
+			// 	message: "There is a problem with "+sensor,
+			// 	type: "warning",
+			// 	insert: "top",
+			// 	container: "top-right",
+			// 	animationIn: ["animate__animated", "animate__fadeIn"],
+			// 	animationOut: ["animate__animated", "animate__fadeOut"],
+			// 	// dismiss: {
+			// 	//   duration: 2000,
+			// 	//   onScreen: true
+			// 	// }
+			//   });
 
 		}
 	}
@@ -46,19 +46,19 @@ function App() {
 
 	useEffect(() => {
 		if(userAuth?.logged){
-			store.addNotification({
-				title: "Welcome!",
-				message: "This is you dashboad",
-				type: "success",
-				insert: "top",
-				container: "top-right",
-				animationIn: ["animate__animated", "animate__fadeIn"],
-				animationOut: ["animate__animated", "animate__fadeOut"],
-				dismiss: {
-				  duration: 2000,
-				  onScreen: true
-				}
-			  });
+			// store.addNotification({
+			// 	title: "Welcome!",
+			// 	message: "This is you dashboad",
+			// 	type: "success",
+			// 	insert: "top",
+			// 	container: "top-right",
+			// 	animationIn: ["animate__animated", "animate__fadeIn"],
+			// 	animationOut: ["animate__animated", "animate__fadeOut"],
+			// 	dismiss: {
+			// 	  duration: 2000,
+			// 	  onScreen: true
+			// 	}
+			//   });
 
 			  if (sockets) {
 				  try {
@@ -78,7 +78,7 @@ function App() {
 
 	return (
 		<AuthContext.Provider value={{ userAuth, dispatch }}>
-			  <ReactNotification />
+			  {/* <ReactNotification /> */}
 			<AppRouter />
 		</AuthContext.Provider>
 	);

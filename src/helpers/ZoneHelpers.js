@@ -1,4 +1,4 @@
-const checkHealth = (plant, sensors) => {
+export const checkHealth = (plant, sensors) => {
   try {
     const status = {
       ok: true,

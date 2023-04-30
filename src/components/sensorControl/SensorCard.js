@@ -24,6 +24,15 @@ export const SensorCard = ({
         <span className="sensor_card-info"> State: </span>
         <span className="sensor_card-info_value">Working</span>
       </p>
+
+      <p className="card"> 
+      <span className="sensor_card-info"> Ultima Lectura: </span>
+      <span className="sensor_card-info_value">{value}  {valueType}</span>
+
+      
+      
+      </p>
+
       <div className="sensor_card-fullname">{fullname}</div>
     </div>
   );

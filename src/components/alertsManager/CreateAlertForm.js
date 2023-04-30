@@ -20,8 +20,30 @@ export const CreateAlertForm = ({zone, zoneID}) => {
 
     const { userAuth } = useContext(AuthContext);
 
-    const [plants, setPlants] = useState([]);
-    const [readingTypes, setReadingTypes] = useState([]);
+    const [plants2, setPlants] = useState([]);
+    const plants = [
+        {
+            _id: 'as2',
+            name: 'Tomate'
+        },
+        {
+            _id: 'as2',
+            name: 'Cebolla'
+        }
+    ]
+    const [readingTypes2, setReadingTypes] = useState([]);
+
+    const readingTypes = [
+        {
+            _id: 'as2',
+            name: 'Temperatura'
+        },
+        {
+            _id: 'as2',
+            name: 'Humedad'
+        }
+    ]
+
     // const [sensors, setSensors] = useState([]);
 
     const [selectedPlant, setSelectedPlant] = useState("default");
@@ -30,13 +52,13 @@ export const CreateAlertForm = ({zone, zoneID}) => {
     const { register, handleSubmit, watch, formState: { errors },reset } = useForm();
     
     const onSubmit = async (data) => {
-        const res = await addAlertParameters(zoneID, {
-            ...data,
-            plantID: selectedPlant,
-            readingTypeID: selectedReadingType
-        }, userAuth?.token);
+        // const res = await addAlertParameters(zoneID, {
+        //     ...data,
+        //     plantID: selectedPlant,
+        //     readingTypeID: selectedReadingType
+        // }, userAuth?.token);
 
-        console.log(res);
+        // console.log(res);
         reset();
     };
 
@@ -59,10 +81,10 @@ export const CreateAlertForm = ({zone, zoneID}) => {
         //     setPlants(all_plants || []);
         // })();
 
-        (async () => {
-            const {data: all_readingTypes} = await getReadingTypes(userAuth?.token);
-            setReadingTypes(all_readingTypes || []);
-        })();
+        // (async () => {
+        //     const {data: all_readingTypes} = await getReadingTypes(userAuth?.token);
+        //     setReadingTypes(all_readingTypes || []);
+        // })();
     }, [zone]);
 
     useEffect(() => {

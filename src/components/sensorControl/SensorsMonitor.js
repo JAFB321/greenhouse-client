@@ -20,7 +20,7 @@ export const SensorsMonitor = () => {
             },
           }
         );
-
+          console.log(data?.data);
         setSensors(data?.data);
       } catch (error) {
         console.log(error);
@@ -32,16 +32,20 @@ export const SensorsMonitor = () => {
   return (
     <>
       <div className="sensor_card-grid">
-        {sensors.map((sensor) => (
-          <SensorCard
-            key={sensor.name}
-            sensorID={sensor.name}
-            sensorType={sensor.ReadingType.MeasureType.type}
-            value={sensor.lastValue}
-            valueType={sensor.readSymbol}
-            fullname={sensor.fullname}
+      <SensorCard
+            sensorID={'Temperatura'}
+            sensorType={'temperature'}
+            value={24}
+            valueType={'C'}
+            fullname={'Sensor Alpine C-23'}
           />
-        ))}
+
+        <SensorCard
+            sensorID={'Humedad'}
+            value={40}
+            valueType={'%'}
+            fullname={'Sensor Humidity 3000'}
+          />
       </div>
     </>
   );
