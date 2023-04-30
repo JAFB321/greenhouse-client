@@ -27,5 +27,3 @@ export const checkHealth = (plant, sensors) => {
     return {};
   }
 };
-
-module.exports = { checkHealth };
